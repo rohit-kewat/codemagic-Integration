@@ -33,56 +33,56 @@ void main() {
       final variable2 = find.widgetWithText(FlatButton, '3');
 
       await tester.tap(find.widgetWithText(FlatButton, 'C'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable1);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '+'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable2);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '='));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
 
       expect(find.text('12'), findsOneWidget);
 
       // Check Subtraction two number.
       await tester.tap(find.widgetWithText(FlatButton, 'C'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable1);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '-'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable2);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '='));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
 
       expect(find.text('6'), findsNWidgets(2));
 
       // Check Multiplication of two number.
       await tester.tap(find.widgetWithText(FlatButton, 'C'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable1);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '*'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable2);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '='));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
 
       expect(find.text('27'), findsOneWidget);
 
       await tester.tap(find.widgetWithText(FlatButton, 'C'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable1);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '/'));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(variable2);
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
       await tester.tap(find.widgetWithText(FlatButton, '='));
-      await tester.pump(const Duration(seconds: 3));
+      await tester.pump();
 
       expect(find.text('3'), findsNWidgets(2));
 
