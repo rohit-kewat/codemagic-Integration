@@ -57,7 +57,7 @@ void main() {
       await tester.tap(find.widgetWithText(FlatButton, '='));
       await tester.pump(const Duration(seconds: 3));
 
-      expect(find.text('6'), findsOneWidget);
+      expect(find.text('6'), findsNWidgets(2));
 
       // Check Multiplication of two number.
       await tester.tap(find.widgetWithText(FlatButton, 'C'));
