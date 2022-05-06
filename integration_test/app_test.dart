@@ -9,28 +9,31 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test', () {
-    testWidgets('tap on the floating action button, verify counter',
+    testWidgets(
+        'tap on variables and verify addition,subtraction,division and multiplication of variables.',
         (WidgetTester tester) async {
-      await tester.pumpWidget(const MyApp());
+      await tester.pumpWidget(MyApp());
       await tester.pumpAndSettle();
       await tester.pump(const Duration(seconds: 2));
 
       // Verify the counter starts at 0.
-      expect(find.text('0'), findsOneWidget);
-      expect(find.text('1'), findsOneWidget);
-      expect(find.text('2'), findsOneWidget);
-      expect(find.text('3'), findsOneWidget);
-      expect(find.text('4'), findsOneWidget);
-      expect(find.text('5'), findsOneWidget);
-      expect(find.text('C'), findsOneWidget);
-      expect(find.text('x'), findsOneWidget);
-      expect(find.text('+'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '0'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '1'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '2'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '3'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '4'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '5'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, 'C'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, 'x'), findsOneWidget);
+      expect(find.widgetWithText(FlatButton, '+'), findsOneWidget);
 
       // Check Summation of two number.
       // ignore: deprecated_member_use
       final variable1 = find.widgetWithText(FlatButton, '9');
       final variable2 = find.widgetWithText(FlatButton, '3');
 
+      await tester.tap(find.widgetWithText(FlatButton, 'C'));
+      await tester.pump(const Duration(seconds: 3));
       await tester.tap(variable1);
       await tester.pump(const Duration(seconds: 3));
       await tester.tap(find.widgetWithText(FlatButton, '+'));
@@ -43,6 +46,8 @@ void main() {
       expect(find.text('12'), findsOneWidget);
 
       // Check Subtraction two number.
+      await tester.tap(find.widgetWithText(FlatButton, 'C'));
+      await tester.pump(const Duration(seconds: 3));
       await tester.tap(variable1);
       await tester.pump(const Duration(seconds: 3));
       await tester.tap(find.widgetWithText(FlatButton, '-'));
@@ -55,6 +60,8 @@ void main() {
       expect(find.text('6'), findsOneWidget);
 
       // Check Multiplication of two number.
+      await tester.tap(find.widgetWithText(FlatButton, 'C'));
+      await tester.pump(const Duration(seconds: 3));
       await tester.tap(variable1);
       await tester.pump(const Duration(seconds: 3));
       await tester.tap(find.widgetWithText(FlatButton, '*'));
@@ -66,6 +73,8 @@ void main() {
 
       expect(find.text('27'), findsOneWidget);
 
+      await tester.tap(find.widgetWithText(FlatButton, 'C'));
+      await tester.pump(const Duration(seconds: 3));
       await tester.tap(variable1);
       await tester.pump(const Duration(seconds: 3));
       await tester.tap(find.widgetWithText(FlatButton, '/'));
